@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7dce42aadb364c14985073be70231b31" Name="Diagram1">
+        <EntityTypeShape EntityType="ResellerModel.Admin" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResellerModel.Bill" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResellerModel.Buyer" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResellerModel.Estate" Width="1.5" PointX="3" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResellerModel.EstateCategory" Width="1.5" PointX="0.75" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResellerModel.Location" Width="1.5" PointX="0.75" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResellerModel.ResellerOrder" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResellerModel.RoleUsers" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResellerModel.Seller" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResellerModel.Status" Width="1.5" PointX="0.75" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResellerModel.Vehicle" Width="1.5" PointX="3" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResellerModel.VehicleCategory" Width="1.5" PointX="0.75" PointY="23.25" IsExpanded="true" />
+        <AssociationConnector Association="ResellerModel.FK__Admin__RoleID__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="ResellerModel.FK__ResellerO__BillN__395884C4" ManuallyRouted="false" />
+        <AssociationConnector Association="ResellerModel.FK__Buyer__RoleID__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="ResellerModel.FK__ResellerO__Buyer__3A4CA8FD" ManuallyRouted="false" />
+        <AssociationConnector Association="ResellerModel.FK__Estate__ECategor__367C1819" ManuallyRouted="false" />
+        <AssociationConnector Association="ResellerModel.FK__Estate__Location__3587F3E0" ManuallyRouted="false" />
+        <AssociationConnector Association="ResellerModel.FK__Estate__StatusID__3493CFA7" ManuallyRouted="false" />
+        <AssociationConnector Association="ResellerModel.FK__ResellerO__Estat__3D2915A8" ManuallyRouted="false" />
+        <AssociationConnector Association="ResellerModel.FK__Vehicle__Locatio__30C33EC3" ManuallyRouted="false" />
+        <AssociationConnector Association="ResellerModel.FK__ResellerO__Selle__3B40CD36" ManuallyRouted="false" />
+        <AssociationConnector Association="ResellerModel.FK__ResellerO__Vehic__3C34F16F" ManuallyRouted="false" />
+        <AssociationConnector Association="ResellerModel.FK__Seller__RoleID__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="ResellerModel.FK__Vehicle__StatusI__2FCF1A8A" ManuallyRouted="false" />
+        <AssociationConnector Association="ResellerModel.FK__Vehicle__VCatego__31B762FC" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
