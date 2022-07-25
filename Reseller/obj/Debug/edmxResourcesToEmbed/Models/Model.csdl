@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ResellerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AdminName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RoleID" Type="Int32" />
+    <NavigationProperty Name="RoleUsers" Relationship="Self.FK__Admin__RoleID__25869641" FromRole="Admin" ToRole="RoleUsers" />
+  </EntityType>
+  <EntityType Name="Bill">
+    <Key>
+      <PropertyRef Name="BillNo" />
+    </Key>
+    <Property Name="BillNo" Type="Int32" Nullable="false" />
+    <Property Name="BillDate" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="ResellerOrder" Relationship="Self.FK__ResellerO__BillN__395884C4" FromRole="Bill" ToRole="ResellerOrder" />
+  </EntityType>
+  <EntityType Name="Buyer">
+    <Key>
+      <PropertyRef Name="BuyerID" />
+    </Key>
+    <Property Name="BuyerID" Type="Int32" Nullable="false" />
+    <Property Name="BuyerUserName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BuyerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PhoneBuyer" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RoleID" Type="Int32" />
+    <NavigationProperty Name="RoleUsers" Relationship="Self.FK__Buyer__RoleID__286302EC" FromRole="Buyer" ToRole="RoleUsers" />
+    <NavigationProperty Name="ResellerOrder" Relationship="Self.FK__ResellerO__Buyer__3A4CA8FD" FromRole="Buyer" ToRole="ResellerOrder" />
+  </EntityType>
+  <EntityType Name="Estate">
+    <Key>
+      <PropertyRef Name="EstateID" />
+    </Key>
+    <Property Name="EstateID" Type="Int32" Nullable="false" />
+    <Property Name="EstateName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EstatePrice" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="StatusID" Type="Int32" />
+    <Property Name="LocationID" Type="Int32" />
+    <Property Name="ECategoryID" Type="Int32" />
+    <NavigationProperty Name="EstateCategory" Relationship="Self.FK__Estate__ECategor__367C1819" FromRole="Estate" ToRole="EstateCategory" />
+    <NavigationProperty Name="Location" Relationship="Self.FK__Estate__Location__3587F3E0" FromRole="Estate" ToRole="Location" />
+    <NavigationProperty Name="Status" Relationship="Self.FK__Estate__StatusID__3493CFA7" FromRole="Estate" ToRole="Status" />
+    <NavigationProperty Name="ResellerOrder" Relationship="Self.FK__ResellerO__Estat__3D2915A8" FromRole="Estate" ToRole="ResellerOrder" />
+  </EntityType>
+  <EntityType Name="EstateCategory">
+    <Key>
+      <PropertyRef Name="ECategoryID" />
+    </Key>
+    <Property Name="ECategoryID" Type="Int32" Nullable="false" />
+    <Property Name="EstateCategory1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Estate" Relationship="Self.FK__Estate__ECategor__367C1819" FromRole="EstateCategory" ToRole="Estate" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="LocationID" />
+    </Key>
+    <Property Name="LocationID" Type="Int32" Nullable="false" />
+    <Property Name="Country" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PostalCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Neighbourhood" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Street" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Estate" Relationship="Self.FK__Estate__Location__3587F3E0" FromRole="Location" ToRole="Estate" />
+    <NavigationProperty Name="Vehicle" Relationship="Self.FK__Vehicle__Locatio__30C33EC3" FromRole="Location" ToRole="Vehicle" />
+  </EntityType>
+  <EntityType Name="ResellerOrder">
+    <Key>
+      <PropertyRef Name="OrderNo" />
+    </Key>
+    <Property Name="OrderNo" Type="Int32" Nullable="false" />
+    <Property Name="OrderDate" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BillNo" Type="Int32" />
+    <Property Name="BuyerID" Type="Int32" />
+    <Property Name="SellerID" Type="Int32" />
+    <Property Name="VehicleID" Type="Int32" />
+    <Property Name="EstateID" Type="Int32" />
+    <NavigationProperty Name="Bill" Relationship="Self.FK__ResellerO__BillN__395884C4" FromRole="ResellerOrder" ToRole="Bill" />
+    <NavigationProperty Name="Buyer" Relationship="Self.FK__ResellerO__Buyer__3A4CA8FD" FromRole="ResellerOrder" ToRole="Buyer" />
+    <NavigationProperty Name="Estate" Relationship="Self.FK__ResellerO__Estat__3D2915A8" FromRole="ResellerOrder" ToRole="Estate" />
+    <NavigationProperty Name="Seller" Relationship="Self.FK__ResellerO__Selle__3B40CD36" FromRole="ResellerOrder" ToRole="Seller" />
+    <NavigationProperty Name="Vehicle" Relationship="Self.FK__ResellerO__Vehic__3C34F16F" FromRole="ResellerOrder" ToRole="Vehicle" />
+  </EntityType>
+  <EntityType Name="RoleUsers">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <Property Name="RoleName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Admin" Relationship="Self.FK__Admin__RoleID__25869641" FromRole="RoleUsers" ToRole="Admin" />
+    <NavigationProperty Name="Buyer" Relationship="Self.FK__Buyer__RoleID__286302EC" FromRole="RoleUsers" ToRole="Buyer" />
+    <NavigationProperty Name="Seller" Relationship="Self.FK__Seller__RoleID__2B3F6F97" FromRole="RoleUsers" ToRole="Seller" />
+  </EntityType>
+  <EntityType Name="Seller">
+    <Key>
+      <PropertyRef Name="SellerID" />
+    </Key>
+    <Property Name="SellerID" Type="Int32" Nullable="false" />
+    <Property Name="SellerUserName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SellerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PhoneSeller" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RoleID" Type="Int32" />
+    <NavigationProperty Name="ResellerOrder" Relationship="Self.FK__ResellerO__Selle__3B40CD36" FromRole="Seller" ToRole="ResellerOrder" />
+    <NavigationProperty Name="RoleUsers" Relationship="Self.FK__Seller__RoleID__2B3F6F97" FromRole="Seller" ToRole="RoleUsers" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="StatusID" />
+    </Key>
+    <Property Name="StatusID" Type="Int32" Nullable="false" />
+    <Property Name="StatusInfo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Estate" Relationship="Self.FK__Estate__StatusID__3493CFA7" FromRole="Status" ToRole="Estate" />
+    <NavigationProperty Name="Vehicle" Relationship="Self.FK__Vehicle__StatusI__2FCF1A8A" FromRole="Status" ToRole="Vehicle" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="VehicleID" />
+    </Key>
+    <Property Name="VehicleID" Type="Int32" Nullable="false" />
+    <Property Name="VehicleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BrandName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VehicleYear" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VehicleModelName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VehicleSituation" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FuelType" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VehiclePrice" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="StatusID" Type="Int32" />
+    <Property Name="LocationID" Type="Int32" />
+    <Property Name="VCategoryID" Type="Int32" />
+    <NavigationProperty Name="Location" Relationship="Self.FK__Vehicle__Locatio__30C33EC3" FromRole="Vehicle" ToRole="Location" />
+    <NavigationProperty Name="ResellerOrder" Relationship="Self.FK__ResellerO__Vehic__3C34F16F" FromRole="Vehicle" ToRole="ResellerOrder" />
+    <NavigationProperty Name="Status" Relationship="Self.FK__Vehicle__StatusI__2FCF1A8A" FromRole="Vehicle" ToRole="Status" />
+    <NavigationProperty Name="VehicleCategory" Relationship="Self.FK__Vehicle__VCatego__31B762FC" FromRole="Vehicle" ToRole="VehicleCategory" />
+  </EntityType>
+  <EntityType Name="VehicleCategory">
+    <Key>
+      <PropertyRef Name="VCategoryID" />
+    </Key>
+    <Property Name="VCategoryID" Type="Int32" Nullable="false" />
+    <Property Name="VehicleCategory1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Vehicle" Relationship="Self.FK__Vehicle__VCatego__31B762FC" FromRole="VehicleCategory" ToRole="Vehicle" />
+  </EntityType>
+  <Association Name="FK__Admin__RoleID__25869641">
+    <End Role="RoleUsers" Type="Self.RoleUsers" Multiplicity="0..1" />
+    <End Role="Admin" Type="Self.Admin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoleUsers">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="Admin">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ResellerO__BillN__395884C4">
+    <End Role="Bill" Type="Self.Bill" Multiplicity="0..1" />
+    <End Role="ResellerOrder" Type="Self.ResellerOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bill">
+        <PropertyRef Name="BillNo" />
+      </Principal>
+      <Dependent Role="ResellerOrder">
+        <PropertyRef Name="BillNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Buyer__RoleID__286302EC">
+    <End Role="RoleUsers" Type="Self.RoleUsers" Multiplicity="0..1" />
+    <End Role="Buyer" Type="Self.Buyer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoleUsers">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="Buyer">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ResellerO__Buyer__3A4CA8FD">
+    <End Role="Buyer" Type="Self.Buyer" Multiplicity="0..1" />
+    <End Role="ResellerOrder" Type="Self.ResellerOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buyer">
+        <PropertyRef Name="BuyerID" />
+      </Principal>
+      <Dependent Role="ResellerOrder">
+        <PropertyRef Name="BuyerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Estate__ECategor__367C1819">
+    <End Role="EstateCategory" Type="Self.EstateCategory" Multiplicity="0..1" />
+    <End Role="Estate" Type="Self.Estate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstateCategory">
+        <PropertyRef Name="ECategoryID" />
+      </Principal>
+      <Dependent Role="Estate">
+        <PropertyRef Name="ECategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Estate__Location__3587F3E0">
+    <End Role="Location" Type="Self.Location" Multiplicity="0..1" />
+    <End Role="Estate" Type="Self.Estate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="LocationID" />
+      </Principal>
+      <Dependent Role="Estate">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Estate__StatusID__3493CFA7">
+    <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+    <End Role="Estate" Type="Self.Estate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="StatusID" />
+      </Principal>
+      <Dependent Role="Estate">
+        <PropertyRef Name="StatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ResellerO__Estat__3D2915A8">
+    <End Role="Estate" Type="Self.Estate" Multiplicity="0..1" />
+    <End Role="ResellerOrder" Type="Self.ResellerOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estate">
+        <PropertyRef Name="EstateID" />
+      </Principal>
+      <Dependent Role="ResellerOrder">
+        <PropertyRef Name="EstateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vehicle__Locatio__30C33EC3">
+    <End Role="Location" Type="Self.Location" Multiplicity="0..1" />
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="LocationID" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ResellerO__Selle__3B40CD36">
+    <End Role="Seller" Type="Self.Seller" Multiplicity="0..1" />
+    <End Role="ResellerOrder" Type="Self.ResellerOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Seller">
+        <PropertyRef Name="SellerID" />
+      </Principal>
+      <Dependent Role="ResellerOrder">
+        <PropertyRef Name="SellerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ResellerO__Vehic__3C34F16F">
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="0..1" />
+    <End Role="ResellerOrder" Type="Self.ResellerOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicle">
+        <PropertyRef Name="VehicleID" />
+      </Principal>
+      <Dependent Role="ResellerOrder">
+        <PropertyRef Name="VehicleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Seller__RoleID__2B3F6F97">
+    <End Role="RoleUsers" Type="Self.RoleUsers" Multiplicity="0..1" />
+    <End Role="Seller" Type="Self.Seller" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoleUsers">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="Seller">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vehicle__StatusI__2FCF1A8A">
+    <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="StatusID" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="StatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vehicle__VCatego__31B762FC">
+    <End Role="VehicleCategory" Type="Self.VehicleCategory" Multiplicity="0..1" />
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VehicleCategory">
+        <PropertyRef Name="VCategoryID" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="VCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ResellerEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admin" EntityType="Self.Admin" />
+    <EntitySet Name="Bill" EntityType="Self.Bill" />
+    <EntitySet Name="Buyer" EntityType="Self.Buyer" />
+    <EntitySet Name="Estate" EntityType="Self.Estate" />
+    <EntitySet Name="EstateCategory" EntityType="Self.EstateCategory" />
+    <EntitySet Name="Location" EntityType="Self.Location" />
+    <EntitySet Name="ResellerOrder" EntityType="Self.ResellerOrder" />
+    <EntitySet Name="RoleUsers" EntityType="Self.RoleUsers" />
+    <EntitySet Name="Seller" EntityType="Self.Seller" />
+    <EntitySet Name="Status" EntityType="Self.Status" />
+    <EntitySet Name="Vehicle" EntityType="Self.Vehicle" />
+    <EntitySet Name="VehicleCategory" EntityType="Self.VehicleCategory" />
+    <AssociationSet Name="FK__Admin__RoleID__25869641" Association="Self.FK__Admin__RoleID__25869641">
+      <End Role="RoleUsers" EntitySet="RoleUsers" />
+      <End Role="Admin" EntitySet="Admin" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ResellerO__BillN__395884C4" Association="Self.FK__ResellerO__BillN__395884C4">
+      <End Role="Bill" EntitySet="Bill" />
+      <End Role="ResellerOrder" EntitySet="ResellerOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Buyer__RoleID__286302EC" Association="Self.FK__Buyer__RoleID__286302EC">
+      <End Role="RoleUsers" EntitySet="RoleUsers" />
+      <End Role="Buyer" EntitySet="Buyer" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ResellerO__Buyer__3A4CA8FD" Association="Self.FK__ResellerO__Buyer__3A4CA8FD">
+      <End Role="Buyer" EntitySet="Buyer" />
+      <End Role="ResellerOrder" EntitySet="ResellerOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Estate__ECategor__367C1819" Association="Self.FK__Estate__ECategor__367C1819">
+      <End Role="EstateCategory" EntitySet="EstateCategory" />
+      <End Role="Estate" EntitySet="Estate" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Estate__Location__3587F3E0" Association="Self.FK__Estate__Location__3587F3E0">
+      <End Role="Location" EntitySet="Location" />
+      <End Role="Estate" EntitySet="Estate" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Estate__StatusID__3493CFA7" Association="Self.FK__Estate__StatusID__3493CFA7">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Estate" EntitySet="Estate" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ResellerO__Estat__3D2915A8" Association="Self.FK__ResellerO__Estat__3D2915A8">
+      <End Role="Estate" EntitySet="Estate" />
+      <End Role="ResellerOrder" EntitySet="ResellerOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vehicle__Locatio__30C33EC3" Association="Self.FK__Vehicle__Locatio__30C33EC3">
+      <End Role="Location" EntitySet="Location" />
+      <End Role="Vehicle" EntitySet="Vehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ResellerO__Selle__3B40CD36" Association="Self.FK__ResellerO__Selle__3B40CD36">
+      <End Role="Seller" EntitySet="Seller" />
+      <End Role="ResellerOrder" EntitySet="ResellerOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ResellerO__Vehic__3C34F16F" Association="Self.FK__ResellerO__Vehic__3C34F16F">
+      <End Role="Vehicle" EntitySet="Vehicle" />
+      <End Role="ResellerOrder" EntitySet="ResellerOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Seller__RoleID__2B3F6F97" Association="Self.FK__Seller__RoleID__2B3F6F97">
+      <End Role="RoleUsers" EntitySet="RoleUsers" />
+      <End Role="Seller" EntitySet="Seller" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vehicle__StatusI__2FCF1A8A" Association="Self.FK__Vehicle__StatusI__2FCF1A8A">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Vehicle" EntitySet="Vehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vehicle__VCatego__31B762FC" Association="Self.FK__Vehicle__VCatego__31B762FC">
+      <End Role="VehicleCategory" EntitySet="VehicleCategory" />
+      <End Role="Vehicle" EntitySet="Vehicle" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
