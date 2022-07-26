@@ -13,7 +13,7 @@ Kodun yazıldığı platform Visual Studio 2019'dur.
 
 Veritabanı Database First EF Core yöntemiyle oluşturulmuştur.
 
-Scaffold metoduyla Package Manager Console'da MSSQL Server'ın bağlı olduğu "Connection String"(Ör:(localdb)\MSSQLLocalDB) sunucu ve oluşturulan database ismi girilerek Models klasörü içerisinde veritabanında bulunan tabloların içindeki değişkenler oluşturuldu.
+Scaffold metoduyla Package Manager Console'da MSSQL Server'ın bağlı olduğu "Connection String" (Ör:(localdb)\MSSQLLocalDB) sunucu ve oluşturulan database ismi girilerek Models klasörü içerisinde veritabanında bulunan tabloların içindeki değişkenler oluşturuldu.
 
 Sonrasında kullanıcıların erişebileceği basit bir arayüz oluşturuldu.
 
