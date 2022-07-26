@@ -36,6 +36,7 @@ namespace Reseller.Models
             {
 
                 optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=Reseller;Trusted_Connection=True;");
+                base.OnConfiguring(optionsBuilder);
             }
         }
 

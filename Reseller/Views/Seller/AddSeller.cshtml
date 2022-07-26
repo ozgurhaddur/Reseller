@@ -1,0 +1,38 @@
+﻿@model Reseller.Models.Seller
+@{ ViewData["Title"] = "Satıcı Ekleme";
+    Layout = "_AdminLayout.cshtml"; }
+
+
+@using Reseller.Controllers
+
+
+<form class="p-1 m-1" method="post">
+
+    <div class="form-group">
+        <label for="SellerUserName" class="input-group-text">Kullanıcı Adı</label>
+        <input type="text" asp-for="SellerUserName" class="form-control" />
+        <div><span class="text-danger" asp-validation-for="SellerUserName"></span></div>
+    </div>
+    <br />
+
+    <div class="form-group">
+        <label for="SellerName" class="input-group-text">Adı ve Soyadı</label>
+        <input type="text" asp-for="SellerName" class="form-control" />
+        <div><span class="text-danger" asp-validation-for="SellerName"></span></div>
+    </div>
+    <br />
+
+    <div class="form-group">
+        <label for="PhoneSeller" class="input-group-text">Telefon Numarası</label>
+        <input type="text" asp-for="PhoneSeller" class="form-control" />
+        <div><span class="text-danger" asp-validation-for="PhoneSeller"></span></div>
+    </div>
+
+    <input type="submit" value="Kaydet" class="btn btn-success" style="float: right;" />
+
+    <!--
+        <button id="btnSaveMission" type="submit" class="btn btn-success" style="float: right;">Kaydet</button>
+    -->
+
+
+</form>

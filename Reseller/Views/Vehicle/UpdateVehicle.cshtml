@@ -1,0 +1,133 @@
+﻿@model Reseller.Models.Vehicle
+@{ ViewData["Title"] = "Araç Bilgisi Güncelle";
+    Layout = "_AdminLayout.cshtml"; }
+
+@using Reseller.Controllers
+
+<h3 class="text-center mt-5">Araç Güncelleme Sayfası</h3>
+<br />
+
+<form method="post" enctype="multipart/form-data" asp-controller="Vehicle" asp-action="UpdateVehicle">
+
+
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Araç Adı</span>
+        </div>
+        <textarea asp-for="VehicleName" class="form-control" aria-label="With textarea" required></textarea>
+    </div>
+    <br />
+    <div class="input-group-prepend">
+        <label class="input-group-text" for="BrandName">Araba Modeli</label>
+    </div>
+    <select id="BrandName" name="BrandName" class="custom-select" required>
+        <option value="" selected disabled>Araba Modeli...</option>
+        <option asp-for="BrandName" name="Alfa Romeo" value="Alfa Romeo">Alfa Romeo</option>
+        <option asp-for="BrandName" name="Aston Martin" value="Aston Martin">Aston Martin</option>
+        <option asp-for="BrandName" name="Audi" value="Audi">Audi</option>
+        <option asp-for="BrandName" name="BMW" value="BMW">BMW</option>
+        <option asp-for="BrandName" name="Bugatti" value="Bugatti">Bugatti</option>
+        <option asp-for="BrandName" name="Cadillac" value="Cadillac">Cadillac</option>
+        <option asp-for="BrandName" name="Chery" value="Chery">Chery</option>
+        <option asp-for="BrandName" name="Chevrolet" value="Chevrolet">Chevrolet</option>
+        <option asp-for="BrandName" name="Chrysler" value="Chrysler">Chrysler</option>
+        <option asp-for="BrandName" name="Citroen" value="Citroen">Citroen</option>
+        <option asp-for="BrandName" name="Dacia" value="Dacia">Kur Sınavı</option>
+        <option asp-for="BrandName" name="Daihatsu" value="Daihatsu">Daihatsu</option>
+        <option asp-for="BrandName" name="Dodge" value="Dodge">Dodge</option>
+        <option asp-for="BrandName" name="Ferrari" value="Ferrari">Ferrari</option>
+        <option asp-for="BrandName" name="Fiat" value="Fiat">Fiat</option>
+        <option asp-for="BrandName" name="Ford" value="Ford">Ford</option>
+        <option asp-for="BrandName" name="Honda" value="Honda">Honda</option>
+        <option asp-for="BrandName" name="Hyundai" value="Hyundai">Hyundai</option>
+        <option asp-for="BrandName" name="Jaguar" value="Jaguar">Jaguar</option>
+        <option asp-for="BrandName" name="Kia" value="Kia">Kia</option>
+        <option asp-for="BrandName" name="Lada" value="Lada">Lada</option>
+        <option asp-for="BrandName" name="Lamborghini" value="Lamborghini">Lamborghini</option>
+        <option asp-for="BrandName" name="Maserati" value="Maserati">Maserati</option>
+        <option asp-for="BrandName" name="Mazda" value="Mazda">Mazda</option>
+        <option asp-for="BrandName" name="McLaren" value="McLaren">McLaren</option>
+        <option asp-for="BrandName" name="Mercedes-Benz" value="Mercedes-Benz">Mercedes-Benz</option>
+        <option asp-for="BrandName" name="Mini" value="Mini">Mini</option>
+        <option asp-for="BrandName" name="Mitsubishi" value="Mitsubishi">Mitsubishi</option>
+        <option asp-for="BrandName" name="Nissan" value="Nissan">Nissan</option>
+        <option asp-for="BrandName" name="Opel" value="Opel">Opel</option>
+        <option asp-for="BrandName" name="Peugeot" value="Peugeot">Peugeot</option>
+        <option asp-for="BrandName" name="Porsche" value="Porsche">Porsche</option>
+        <option asp-for="BrandName" name="Renault" value="Renault">Renault</option>
+        <option asp-for="BrandName" name="Rolls-Royce" value="Rolls-Royce">Rolls-Royce</option>
+        <option asp-for="BrandName" name="Seat" value="Seat">Seat</option>
+        <option asp-for="BrandName" name="Skoda" value="Skoda">Skoda</option>
+        <option asp-for="BrandName" name="Tesla" value="Tesla">Tesla</option>
+        <option asp-for="BrandName" name="Tofaş" value="Tofaş">Tofaş</option>
+        <option asp-for="BrandName" name="Toyota" value="Toyota">Toyota</option>
+        <option asp-for="BrandName" name="Volkswagen" value="Volkswagen">Volkswagen</option>
+        <option asp-for="BrandName" name="Volvo" value="Volvo">Volvo</option>
+    </select>
+    <br />
+
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Üretim Yılı</span>
+        </div>
+        <textarea asp-for="VehicleYear" class="form-control" aria-label="With textarea" required></textarea>
+    </div>
+    <br />
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Model Adı</span>
+        </div>
+        <textarea asp-for="VehicleModelName" class="form-control" aria-label="With textarea" required></textarea>
+    </div>
+    <br />
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Aracın Durumu</span>
+        </div>
+        <textarea asp-for="VehicleSituation" class="form-control" aria-label="With textarea" required></textarea>
+    </div>
+
+    <br />
+    <div class="input-group-prepend">
+        <label class="input-group-text" for="FuelType">Yakıt</label>
+    </div>
+    <select id="FuelType" name="FuelType" class="custom-select" required>
+        <option value="" selected disabled>Yakıt...</option>
+        <option asp-for="FuelType" name="Benzin" value="Benzin">Benzin</option>
+        <option asp-for="FuelType" name="Dizel" value="Dizel">Dizel</option>
+        <option asp-for="FuelType" name="Otogaz" value="Otogaz">Otogaz</option>
+        <option asp-for="FuelType" name="Hidrojen" value="Hidrojen">Hidrojen</option>
+        <option asp-for="FuelType" name="Elektrik" value="Elektrik">Elektrik</option>
+        <option asp-for="FuelType" name="Hybrid" value="Hybrid">Hybrid</option>
+    </select>
+    <br />
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Fiyat</span>
+        </div>
+        <textarea asp-for="VehiclePrice" class="form-control" aria-label="With textarea" required></textarea>
+    </div>
+    <br />
+    <div class="input-group-prepend">
+        <label class="input-group-text" for="StatusID">Durum</label>
+    </div>
+    <br />
+    <select id="FuelType" name="StatusID" class="custom-select" required>
+        <option value="" selected disabled>Kiralık/Satılık seçimi yapınız...</option>
+        <option asp-for="StatusID" name="Kiralık" value="Kiralık">Kiralık</option>
+        <option asp-for="StatusID" name="Satılık" value="Satılık">Satılık</option>
+    </select>
+
+    <br />
+
+    @*<b>Tablolu sorular için fotoğraf ekleyebilirsiniz (.jpeg ve .png uzantılı dosyalar kabul edilmektedir)</b>
+        <br />
+        <input id="fileInput" type="file" name="postedFile" accept="audio/*,image/*" />
+
+        <br />*@
+
+    <button id="btnSaveForReading" type="submit" class="btn btn-success btnSaveForReading" style="float: right;">Kaydet</button>
+
+    <br />
+    <br />
+</form>

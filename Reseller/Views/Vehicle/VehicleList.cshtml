@@ -1,0 +1,54 @@
+﻿@{ ViewData["Title"] = "Araç Listesi";
+    Layout = "_AdminLayout.cshtml"; }
+
+@model IEnumerable<Reseller.Models.Vehicle>
+@using Reseller.Controllers
+
+
+<h2>Araç Listesi</h2>
+<br />
+<table class=" table table-sm table-bordered">
+    <thead class="bg-success text-white">
+        <tr>
+            <th>Araç Adı</th>
+            <th>Araba Modeli</th>
+            <th>Üretim Yılı</th>
+            <th>Model Adı</th>
+            <th>Aracın Durumu</th>
+            <th>Yakıt</th>
+            <th>Fiyat</th>
+            <th>Durum</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var vehicle in Model)
+        {
+        <tr>
+            <td>@vehicle.VehicleName</td>
+            <td>@vehicle.BrandName</td>
+            <td>@vehicle.VehicleYear</td>
+            <td>@vehicle.VehicleModelName</td>
+            <td>@vehicle.VehicleSituation</td>
+            <td>@vehicle.FuelType</td>
+            <td>@vehicle.VehiclePrice</td>
+            <td>@vehicle.VehicleSituation</td>
+
+            <td>
+                <a class="btn btn-info btn-sm" asp-controller="Vehicle" asp-action="UpdateVehicle" asp-route-id="@vehicle.VehicleId">
+                    Update
+                </a>
+            </td>
+            <td>
+                <a class="btn btn-info btn-sm" asp-controller="Vehicle" asp-action="DeleteVehicle" asp-route-id="@vehicle.VehicleId">
+                    Delete
+                </a>
+            </td>
+
+        </tr>}
+
+    </tbody>
+
+
+
+</table>
