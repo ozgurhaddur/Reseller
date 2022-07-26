@@ -1,5 +1,5 @@
 # Reseller
-Vehicle/Estate Marketing Application
+Vehicle/Estate Marketing Web Application
 
 ## Giriş
 Çalışmada belirlenen amaç,bir uygulama gerçekleştirimi ile beraber Emlak/Araç satışının ya da kiralanmasının sağlandığı bir uygulama gerçekleştirilmesidir.
