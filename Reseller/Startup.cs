@@ -26,7 +26,7 @@ namespace Reseller
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<ResellerContext>();
+            services.AddDbContext<ResellerContext>(); 
  
         }
 

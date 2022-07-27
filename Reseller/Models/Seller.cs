@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 #nullable disable
 
@@ -11,7 +12,7 @@ namespace Reseller.Models
         {
             ResellerOrders = new HashSet<ResellerOrder>();
         }
-
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int SellerId { get; set; }
         public string SellerUserName { get; set; }
         public string SellerName { get; set; }

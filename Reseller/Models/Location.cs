@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 #nullable disable
 
@@ -13,7 +14,9 @@ namespace Reseller.Models
             Vehicles = new HashSet<Vehicle>();
         }
 
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int LocationId { get; set; }
+        public string LocationName { get; set; }
         public string Country { get; set; }
         public string City { get; set; }
         public string PostalCode { get; set; }

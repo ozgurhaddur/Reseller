@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 #nullable disable
 
@@ -12,6 +13,7 @@ namespace Reseller.Models
             Estates = new HashSet<Estate>();
         }
 
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int EcategoryId { get; set; }
         public string EstateCategory1 { get; set; }
 

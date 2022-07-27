@@ -1,0 +1,49 @@
+﻿@{ ViewData["Title"] = "Emlak Listesi";
+    Layout = "_AdminLayout.cshtml"; }
+
+@model IEnumerable<Reseller.Models.Estate>
+@using Reseller.Controllers
+
+
+<h2>Emlak Bilgileri </h2>
+<br />
+<table class=" table table-sm table-bordered">
+    <thead class="bg-success text-white">
+        <tr>
+            <th>Emlak Bilgisi</th>
+            <th>Kategori</th>
+            <th>Konum</th>
+            <th>Durum</th>
+            <th>Fiyat</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var estate in Model)
+        {
+<tr>
+    <td>@estate.EstateName</td>
+    <td>@estate.Ecategory</td>
+    <td>@estate.Location</td>
+    <td>@estate.Status</td>
+    <td>@estate.EstatePrice</td>
+
+    <td>
+        <a class="btn btn-info btn-sm" asp-controller="Estate" asp-action="UpdateEstate" asp-route-id="@estate.EstateId">
+            Update
+        </a>
+    </td>
+    <td>
+        <a class="btn btn-info btn-sm" asp-controller="Estate" asp-action="DeleteEstate" asp-route-id="@estate.EstateId">
+            Delete
+        </a>
+    </td>
+
+</tr>
+}
+
+    </tbody>
+
+
+
+</table>

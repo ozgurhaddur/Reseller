@@ -5,6 +5,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="Views\Admin\Index.cshtml" />
+    <None Include="Views\Estate\AddEstate.cshtml" />
+    <None Include="Views\Estate\EstateList.cshtml" />
+    <None Include="Views\Estate\UpdateEstate.cshtml" />
+    <None Include="Views\Estate\_AdminLayout.cshtml" />
+    <None Include="Views\Home\Error.cshtml" />
+    <None Include="Views\Home\Index.cshtml" />
+    <None Include="Views\Home\_AdminLayout.cshtml" />
+    <None Include="Views\Seller\AddSeller.cshtml" />
+    <None Include="Views\Seller\SellerList.cshtml" />
+    <None Include="Views\Seller\UpdateSeller.cshtml" />
+    <None Include="Views\Seller\_AdminLayout.cshtml" />
+    <None Include="Views\Shared\_Layout.cshtml" />
+    <None Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
+    <None Include="Views\Vehicle\AddVehicle.cshtml" />
+    <None Include="Views\Vehicle\UpdateVehicle.cshtml" />
+    <None Include="Views\Vehicle\VehicleList.cshtml" />
+    <None Include="Views\Vehicle\_AdminLayout.cshtml" />
+    <None Include="Views\_ViewImports.cshtml" />
+    <None Include="Views\_ViewStart.cshtml" />
     <None Include="wwwroot\Content\css\maps\vertical-layout-light\style.css.map" />
     <None Include="wwwroot\Content\css\vertical-layout-light\style.css" />
     <None Include="wwwroot\Content\images\auth\lockscreen-bg.jpg" />

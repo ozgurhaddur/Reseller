@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Reseller.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Reseller.Controllers
 {
@@ -28,9 +29,13 @@ namespace Reseller.Controllers
         {
             if (ModelState.IsValid)
             {
+            
                 resellerContext.Sellers.Add(seller);
+                
                 resellerContext.SaveChanges();
                 
+
+
 
                 return RedirectToAction("SellerList", seller);
 
