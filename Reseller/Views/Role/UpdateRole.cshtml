@@ -1,0 +1,29 @@
+﻿@model Reseller.Models.RoleUser
+@{ ViewData["Title"] = "Rol Güncelleme";
+    Layout = "_AdminLayout.cshtml"; }
+
+
+@using Reseller.Controllers
+
+
+@using (Html.BeginForm())
+{
+
+<div class="form-horizontal">
+    <br>
+    <br>
+    <h4>Rol Ekle</h4>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <label class="control-label col-md-2">Rol İsmi</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.RoleName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.RoleName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Ekle" class="btn btn-success" style="float: right;" />
+        </div>
+    </div>
+</div>}

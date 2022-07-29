@@ -9,6 +9,16 @@
 <form class="p-1 m-1" method="post">
 
     <div class="form-group">
+        <label class="control-label">Rol Seçimi</label>
+        <select asp-for="@Model.Role.RoleName" class="custom-select">
+            <option value="" selected disabled>Rol Seçimi</option>
+            <option value="Admin">Admin</option>
+            <option value="Seller">Satıcı</option>
+            <option value="Buyer">Alıcı</option>
+        </select>
+    </div>
+
+    <div class="form-group">
         <label for="SellerUserName" class="input-group-text">Kullanıcı Adı</label>
         <input type="text" asp-for="SellerUserName" class="form-control" />
         <div><span class="text-danger" asp-validation-for="SellerUserName"></span></div>

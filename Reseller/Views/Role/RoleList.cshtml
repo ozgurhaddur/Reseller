@@ -1,0 +1,40 @@
+﻿@{ ViewData["Title"] = "Rol Güncelleme";
+    Layout = "_AdminLayout.cshtml"; }
+
+@model IEnumerable<Reseller.Models.RoleUser>
+@using Reseller.Controllers
+
+
+<h2>Rollerin Listesi</h2>
+<br />
+<table class=" table table-sm table-bordered">
+    <thead class="bg-success text-white">
+        <tr>
+            <th>Kullanıcı Rolü</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var role in Model)
+        {
+<tr>
+    <td>@role.RoleName</td>
+    
+    <td>
+        <a class="btn btn-info btn-sm" asp-controller="Role" asp-action="UpdateRole" asp-route-id="@role.RoleId">
+            Update
+        </a>
+    </td>
+    <td>
+        <a class="btn btn-info btn-sm" asp-controller="Role" asp-action="DeleteRole" asp-route-id="@role.RoleId">
+            Delete
+        </a>
+    </td>
+
+</tr>}
+
+    </tbody>
+
+
+
+</table>

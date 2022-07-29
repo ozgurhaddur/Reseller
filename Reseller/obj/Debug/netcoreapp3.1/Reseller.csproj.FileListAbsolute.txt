@@ -77,6 +77,10 @@ C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Razor\View
 C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Razor\Views\Home\Error.cshtml.g.cs
 C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Razor\Views\Home\_AdminLayout.cshtml.g.cs
+C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Razor\Views\Role\AddRole.cshtml.g.cs
+C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Razor\Views\Role\RoleList.cshtml.g.cs
+C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Razor\Views\Role\UpdateRole.cshtml.g.cs
+C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Razor\Views\Role\_AdminLayout.cshtml.g.cs
 C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Razor\Views\Seller\AddSeller.cshtml.g.cs
 C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Razor\Views\Seller\SellerList.cshtml.g.cs
 C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Razor\Views\Seller\UpdateSeller.cshtml.g.cs
