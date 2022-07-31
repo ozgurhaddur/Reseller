@@ -10,10 +10,14 @@
 <table class=" table table-sm table-bordered">
     <thead class="bg-success text-white">
         <tr>
+            <th>Fotoğraf</th>
+            <th>Kategori</th>
             <th>Araç Adı</th>
             <th>Araba Modeli</th>
             <th>Üretim Yılı</th>
             <th>Model Adı</th>
+            <th>Şehir</th>
+            <th>Adres</th>
             <th>Aracın Durumu</th>
             <th>Yakıt</th>
             <th>Fiyat</th>
@@ -25,14 +29,18 @@
         @foreach (var vehicle in Model)
         {
         <tr>
+            <td>@vehicle.VehiclePicture</td>
+            <td>@vehicle.VehicleCategory</td>
             <td>@vehicle.VehicleName</td>
             <td>@vehicle.BrandName</td>
             <td>@vehicle.VehicleYear</td>
             <td>@vehicle.VehicleModelName</td>
+            <td>@vehicle.City</td>
+            <td>@vehicle.LocationName</td>
             <td>@vehicle.VehicleSituation</td>
             <td>@vehicle.FuelType</td>
             <td>@vehicle.VehiclePrice</td>
-            <td>@vehicle.VehicleSituation</td>
+            <td>@vehicle.StatusInfo</td>
 
             <td>
                 <a class="btn btn-info btn-sm" asp-controller="Vehicle" asp-action="UpdateVehicle" asp-route-id="@vehicle.VehicleId">

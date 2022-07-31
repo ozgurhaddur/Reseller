@@ -63,7 +63,6 @@ C:\Users\ozgur\source\repos\Reseller\Reseller\bin\Debug\netcoreapp3.1\runtimes\w
 C:\Users\ozgur\source\repos\Reseller\Reseller\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\ozgur\source\repos\Reseller\Reseller\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Reseller.csproj.AssemblyReference.cache
-C:\Users\ozgur\source\repos\Reseller\Reseller\bin\Debug\netcoreapp3.1\Reseller.Views.pdb
 C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Reseller.RazorAssemblyInfo.cache
 C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Reseller.RazorAssemblyInfo.cs
 C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Reseller.TagHelpers.input.cache
@@ -94,4 +93,5 @@ C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Razor\View
 C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
 C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Reseller.RazorTargetAssemblyInfo.cs
+C:\Users\ozgur\source\repos\Reseller\Reseller\bin\Debug\netcoreapp3.1\Reseller.Views.pdb
 C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Reseller.Views.pdb

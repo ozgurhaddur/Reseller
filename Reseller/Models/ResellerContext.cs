@@ -21,20 +21,15 @@ namespace Reseller.Models
         public virtual DbSet<Bill> Bills { get; set; }
         public virtual DbSet<Buyer> Buyers { get; set; }
         public virtual DbSet<Estate> Estates { get; set; }
-        public virtual DbSet<EstateCategory> EstateCategories { get; set; }
-        public virtual DbSet<Location> Locations { get; set; }
         public virtual DbSet<ResellerOrder> ResellerOrders { get; set; }
         public virtual DbSet<RoleUser> RoleUsers { get; set; }
         public virtual DbSet<Seller> Sellers { get; set; }
-        public virtual DbSet<Status> Statuses { get; set; }
         public virtual DbSet<Vehicle> Vehicles { get; set; }
-        public virtual DbSet<VehicleCategory> VehicleCategories { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-
                 optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=Reseller;Trusted_Connection=True;");
             }
         }
@@ -124,74 +119,32 @@ namespace Reseller.Models
 
                 entity.Property(e => e.EstateId).HasColumnName("EstateID");
 
-                entity.Property(e => e.EcategoryId).HasColumnName("ECategoryID");
+                entity.Property(e => e.City)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.EstateCategory)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.EstateInfo)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsFixedLength(true);
 
                 entity.Property(e => e.EstateName)
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsFixedLength(true);
 
-                entity.Property(e => e.EstatePicture).IsRequired();
+                entity.Property(e => e.EstatePicture)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsFixedLength(true);
 
                 entity.Property(e => e.EstatePrice)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsFixedLength(true);
-
-                entity.Property(e => e.LocationId).HasColumnName("LocationID");
-
-                entity.Property(e => e.StatusId).HasColumnName("StatusID");
-
-                entity.HasOne(d => d.Ecategory)
-                    .WithMany(p => p.Estates)
-                    .HasForeignKey(d => d.EcategoryId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Estate_EstateCategory");
-
-                entity.HasOne(d => d.Location)
-                    .WithMany(p => p.Estates)
-                    .HasForeignKey(d => d.LocationId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Estate_Location");
-
-                entity.HasOne(d => d.Status)
-                    .WithMany(p => p.Estates)
-                    .HasForeignKey(d => d.StatusId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Estate_Status");
-            });
-
-            modelBuilder.Entity<EstateCategory>(entity =>
-            {
-                entity.HasKey(e => e.EcategoryId)
-                    .IsClustered(false);
-
-                entity.ToTable("EstateCategory");
-
-                entity.Property(e => e.EcategoryId).HasColumnName("ECategoryID");
-
-                entity.Property(e => e.EstateCategory1)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("EstateCategory")
-                    .IsFixedLength(true);
-            });
-
-            modelBuilder.Entity<Location>(entity =>
-            {
-                entity.HasKey(e => e.LocationId)
-                    .IsClustered(false);
-
-                entity.ToTable("Location");
-
-                entity.Property(e => e.LocationId).HasColumnName("LocationID");
-
-                entity.Property(e => e.City)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsFixedLength(true);
-
-                entity.Property(e => e.Country)
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsFixedLength(true);
@@ -201,17 +154,7 @@ namespace Reseller.Models
                     .HasMaxLength(50)
                     .IsFixedLength(true);
 
-                entity.Property(e => e.Neighbourhood)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsFixedLength(true);
-
-                entity.Property(e => e.PostalCode)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsFixedLength(true);
-
-                entity.Property(e => e.Street)
+                entity.Property(e => e.StatusInfo)
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsFixedLength(true);
@@ -315,21 +258,6 @@ namespace Reseller.Models
                     .HasConstraintName("FK_Seller_RoleUsers");
             });
 
-            modelBuilder.Entity<Status>(entity =>
-            {
-                entity.HasKey(e => e.StatusId)
-                    .IsClustered(false);
-
-                entity.ToTable("Status");
-
-                entity.Property(e => e.StatusId).HasColumnName("StatusID");
-
-                entity.Property(e => e.StatusInfo)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsFixedLength(true);
-            });
-
             modelBuilder.Entity<Vehicle>(entity =>
             {
                 entity.HasKey(e => e.VehicleId)
@@ -344,16 +272,30 @@ namespace Reseller.Models
                     .HasMaxLength(50)
                     .IsFixedLength(true);
 
+                entity.Property(e => e.City)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsFixedLength(true);
+
                 entity.Property(e => e.FuelType)
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsFixedLength(true);
 
-                entity.Property(e => e.LocationId).HasColumnName("LocationID");
+                entity.Property(e => e.LocationName)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsFixedLength(true);
 
-                entity.Property(e => e.StatusId).HasColumnName("StatusID");
+                entity.Property(e => e.StatusInfo)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsFixedLength(true);
 
-                entity.Property(e => e.VcategoryId).HasColumnName("VCategoryID");
+                entity.Property(e => e.VehicleCategory)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsFixedLength(true);
 
                 entity.Property(e => e.VehicleModelName)
                     .IsRequired()
@@ -365,7 +307,10 @@ namespace Reseller.Models
                     .HasMaxLength(50)
                     .IsFixedLength(true);
 
-                entity.Property(e => e.VehiclePicture).IsRequired();
+                entity.Property(e => e.VehiclePicture)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsFixedLength(true);
 
                 entity.Property(e => e.VehiclePrice)
                     .IsRequired()
@@ -380,40 +325,6 @@ namespace Reseller.Models
                 entity.Property(e => e.VehicleYear)
                     .IsRequired()
                     .HasMaxLength(50)
-                    .IsFixedLength(true);
-
-                entity.HasOne(d => d.Location)
-                    .WithMany(p => p.Vehicles)
-                    .HasForeignKey(d => d.LocationId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Vehicle_Location");
-
-                entity.HasOne(d => d.Status)
-                    .WithMany(p => p.Vehicles)
-                    .HasForeignKey(d => d.StatusId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Vehicle_Status");
-
-                entity.HasOne(d => d.Vcategory)
-                    .WithMany(p => p.Vehicles)
-                    .HasForeignKey(d => d.VcategoryId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Vehicle_VehicleCategory");
-            });
-
-            modelBuilder.Entity<VehicleCategory>(entity =>
-            {
-                entity.HasKey(e => e.VcategoryId)
-                    .IsClustered(false);
-
-                entity.ToTable("VehicleCategory");
-
-                entity.Property(e => e.VcategoryId).HasColumnName("VCategoryID");
-
-                entity.Property(e => e.VehicleCategory1)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("VehicleCategory")
                     .IsFixedLength(true);
             });
 

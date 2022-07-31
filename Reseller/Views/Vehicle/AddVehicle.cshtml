@@ -7,7 +7,26 @@
 <h3 class="text-center mt-5">Araç Ekleme Sayfası</h3>
 <br />
 
-<form method="post" enctype="multipart/form-data" asp-controller="Vehicle" asp-action="AddVehicle">
+<form class="p-1 m-1" method="post">
+
+    <div class="mt-3">
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="VehicleCategory">Araç Kategorisi</label>
+        </div>
+        <select id="VehicleCategory" name="VehicleCategory" class="custom-select" required>
+            <option value="" selected disabled>Kategori seçimi yapınız...</option>
+            <option asp-for="VehicleCategory" name="Otomobil" value="Otomobil">Otomobil</option>
+            <option asp-for="VehicleCategory" name="Pickup" value="Pickup">Arazi, SUV & Pickup</option>
+            <option asp-for="VehicleCategory" name="Motosiklet" value="Motosiklet">Motosiklet</option>
+            <option asp-for="VehicleCategory" name="Van" value="Van">Minivan & Panelvan</option>
+            <option asp-for="VehicleCategory" name="Ticari" value="Ticari">Ticari Araçlar</option>
+            <option asp-for="VehicleCategory" name="Elektrikli" value="Elektrikli">Elektrikli Araçlar</option>
+            <option asp-for="VehicleCategory" name="Deniz" value="Deniz">Deniz Araçları</option>
+        </select>
+    </div>
+    <br />
+    <br />
+    <br />
 
     <div class="mt-3">
         <div class="input-group">
@@ -18,6 +37,7 @@
         </div>
     </div>
     <br />
+
     <div class="mt-3">
         <div class="input-group-prepend">
             <label class="input-group-text" for="BrandName">Araba Modeli</label>
@@ -92,6 +112,41 @@
     <br />
 
     <div class="mt-3">
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="City">Konum</label>
+        </div>
+        <select id="City" name="City" class="custom-select" required>
+            <option value="" selected disabled>Şehir...</option>
+            <option asp-for="City" name="Adana" value="Adana">Adana</option>
+            <option asp-for="City" name="Ankara" value="Ankara">Ankara</option>
+            <option asp-for="City" name="Bursa" value="Bursa">Bursa</option>
+            <option asp-for="City" name="Gaziantep" value="Gaziantep">Gaziantep</option>
+            <option asp-for="City" name="Hatay" value="Hatay">Hatay</option>
+            <option asp-for="City" name="İstanbul" value="İstanbul">İstanbul</option>
+            <option asp-for="City" name="İzmir" value="İzmir">İzmir</option>
+            <option asp-for="City" name="Konya" value="Konya">Konya</option>
+            <option asp-for="City" name="Muğla" value="Muğla">Muğla</option>
+            <option asp-for="City" name="Trabzon" value="Trabzon">Trabzon</option>
+        </select>
+    </div>
+    <br />
+    <br />
+    <br />
+
+    <div class="mt-3">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Adres</span>
+            </div>
+            <textarea asp-for="LocationName" class="form-control" aria-label="With textarea" required></textarea>
+        </div>
+    </div>
+    <br />
+
+
+
+
+    <div class="mt-3">
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text">Aracın Durumu</span>
@@ -131,28 +186,31 @@
 
     <div class="mt-3">
         <div class="input-group-prepend">
-            <label class="input-group-text" for="StatusID">Durum</label>
+            <label class="input-group-text" for="StatusInfo">Durum</label>
         </div>
-        <select id="StatusID" name="StatusID" class="custom-select" required>
+        <select id="StatusInfo" name="StatusInfo" class="custom-select" required>
             <option value="" selected disabled>Kiralık/Satılık seçimi yapınız...</option>
-            <option asp-for="StatusID" name="Kiralık" value="Kiralık">Kiralık</option>
-            <option asp-for="StatusID" name="Satılık" value="Satılık">Satılık</option>
+            <option asp-for="StatusInfo" name="Kiralık" value="Kiralık">Kiralık</option>
+            <option asp-for="StatusInfo" name="Satılık" value="Satılık">Satılık</option>
         </select>
-        </div>
+    </div>
+    <br />
+    <br />
+    <br />
 
-            <br />
-            <br />
-            <br />
 
-            @*<b>Tablolu sorular için fotoğraf ekleyebilirsiniz (.jpeg ve .png uzantılı dosyalar kabul edilmektedir)</b>
-            <br />
-            <input id="fileInput" type="file" name="postedFile" accept="audio/*,image/*" />
+    <input type="file" name="VehiclePicture" required />
 
-            <br />*@
+    <!--
+        <b>Araç fotoğrafı ekleyebilirsiniz. (.jpeg ve .png uzantılı dosyalar kabul edilmektedir)</b>
+        <br />
+        <input asp-for="VehiclePicture" id="fileInput" type="file" name="postedFile" accept="audio/*,image/*" />
 
-            <button id="btnSaveForReading" type="submit" class="btn btn-success btnSaveForReading" style="float: right;">Kaydet</button>
+        <br />
+    -->
+    <button id="btnSaveForReading" type="submit" class="btn btn-success btnSaveForReading" style="float: right;">Kaydet</button>
 
-            <br />
-            <br />
+    <br />
+    <br />
 </form>
 
