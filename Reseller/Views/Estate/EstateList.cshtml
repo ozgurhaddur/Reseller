@@ -10,10 +10,13 @@
 <table class=" table table-sm table-bordered">
     <thead class="bg-success text-white">
         <tr>
-            <th>Emlak Bilgisi</th>
+            <th>Fotoğraf</th>
             <th>Kategori</th>
-            <th>Konum</th>
             <th>Durum</th>
+            <th>İlan Adı</th>
+            <th>Ayrıntılı Bilgi</th>
+            <th>Konum</th>
+            <th>Adres</th>
             <th>Fiyat</th>
         </tr>
     </thead>
@@ -21,23 +24,28 @@
     <tbody>
         @foreach (var estate in Model)
         {
-<tr>
-    <td>@estate.EstateName</td>
-    
-    <td>@estate.EstatePrice</td>
+        <tr>
+            <td>@estate.EstatePicture</td>
+            <td>@estate.EstateCategory</td>
+            <td>@estate.StatusInfo</td>
+            <td>@estate.EstateName</td>
+            <td>@estate.EstateInfo</td>
+            <td>@estate.City</td>
+            <td>@estate.LocationName</td>
+            <td>@estate.EstatePrice</td>
 
-    <td>
-        <a class="btn btn-info btn-sm" asp-controller="Estate" asp-action="UpdateEstate" asp-route-id="@estate.EstateId">
-            Update
-        </a>
-    </td>
-    <td>
-        <a class="btn btn-info btn-sm" asp-controller="Estate" asp-action="DeleteEstate" asp-route-id="@estate.EstateId">
-            Delete
-        </a>
-    </td>
+            <td>
+                <a class="btn btn-info btn-sm" asp-controller="Estate" asp-action="UpdateEstate" asp-route-id="@estate.EstateId">
+                    Update
+                </a>
+            </td>
+            <td>
+                <a class="btn btn-info btn-sm" asp-controller="Estate" asp-action="DeleteEstate" asp-route-id="@estate.EstateId">
+                    Delete
+                </a>
+            </td>
 
-</tr>
+        </tr>
 }
 
     </tbody>

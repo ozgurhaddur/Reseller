@@ -95,3 +95,7 @@ C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Razor\View
 C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Reseller.RazorTargetAssemblyInfo.cs
 C:\Users\ozgur\source\repos\Reseller\Reseller\bin\Debug\netcoreapp3.1\Reseller.Views.pdb
 C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Reseller.Views.pdb
+C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Razor\Views\Admin\_AdminLayout.cshtml.g.cs
+C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Razor\Views\Admin\_Layout.cshtml.g.cs
+C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Razor\Views\Account\_Layout.cshtml.g.cs

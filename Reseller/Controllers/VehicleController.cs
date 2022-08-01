@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Reseller.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Reseller.Controllers
 {
+    [Authorize(Roles = "Seller")]
     public class VehicleController : Controller
     {
         private ResellerContext resellerContext;

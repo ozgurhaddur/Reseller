@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,8 +27,15 @@ namespace Reseller
         {
             services.AddControllersWithViews();
             
-            services.AddDbContext<ResellerContext>(); 
- 
+            services.AddDbContext<ResellerContext>();
+            services.AddMvc(option => option.EnableEndpointRouting = false);
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+        .AddCookie(options =>
+        {
+            options.LoginPath = "/Account/Login/";
+        });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,17 +55,24 @@ namespace Reseller
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            app.UseRouting();
+            
 
             app.UseAuthorization();
             app.UseAuthentication();
 
-            app.UseEndpoints(endpoints =>
+            app.UseMvc(routes =>
             {
-                endpoints.MapControllerRoute(
+                routes.MapRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Account}/{action=Login}/{id?}");
             });
+
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapControllerRoute(
+            //        name: "default",
+            //        pattern: "{controller=Home}/{action=Index}/{id?}");
+            //});
         
         }
     }
