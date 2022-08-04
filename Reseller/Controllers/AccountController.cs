@@ -82,6 +82,7 @@ namespace Reseller.Controllers
             }
             return View(objLoginModel);
         }
+        [AllowAnonymous]
         public async Task<IActionResult> LogOut()
         {
             //SignOutAsync is Extension method for SignOut    

@@ -99,3 +99,7 @@ C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Razor\View
 C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Razor\Views\Admin\_Layout.cshtml.g.cs
 C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Razor\Views\Account\_Layout.cshtml.g.cs
+C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Razor\Views\Vehicle\VehicleBucket.cshtml.g.cs
+C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Razor\Views\Vehicle\BucketList.cshtml.g.cs
+C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Razor\Views\Estate\EstateBucket.cshtml.g.cs
+C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Razor\Views\Estate\EstateBucketList.cshtml.g.cs

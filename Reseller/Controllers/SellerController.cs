@@ -5,9 +5,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Reseller.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Reseller.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class SellerController : Controller
     {
         private ResellerContext resellerContext;

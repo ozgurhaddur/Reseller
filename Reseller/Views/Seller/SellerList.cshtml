@@ -5,7 +5,7 @@
 @using Reseller.Controllers
 
 
-<h2>Satıcı Listesi</h2>
+<h3 class="text-center mt-5">Satıcı Güncelleme Sayfası</h3>
 <br />
 <table class=" table table-sm table-bordered">
     <thead class="bg-success text-white">
@@ -19,23 +19,22 @@
     <tbody>
         @foreach (var seller in Model)
         {
-        <tr>
-            <td>@seller.SellerUserName</td>
-            <td>@seller.SellerName</td>
-            <td>@seller.PhoneSeller</td>
-            <td>
-                <a class="btn btn-info btn-sm" asp-controller="Seller" asp-action="UpdateSeller" asp-route-id="@seller.SellerId">
-                    Update
-                </a>
-            </td>
-            <td>
-                <a class="btn btn-info btn-sm" asp-controller="Seller" asp-action="DeleteSeller" asp-route-id="@seller.SellerId">
-                    Delete
-                </a>
-            </td>
+<tr>
+    <td>@seller.SellerUserName</td>
+    <td>@seller.SellerName</td>
+    <td>@seller.PhoneSeller</td>
+    <td>
+        <a class="btn btn-info btn-sm" asp-controller="Seller" asp-action="UpdateSeller" asp-route-id="@seller.SellerId">
+            Update
+        </a>
+    </td>
+    <td>
+        <a class="btn btn-info btn-sm" asp-controller="Seller" asp-action="DeleteSeller" asp-route-id="@seller.SellerId">
+            Delete
+        </a>
+    </td>
 
-        </tr>
-}
+</tr>}
 
     </tbody>
 

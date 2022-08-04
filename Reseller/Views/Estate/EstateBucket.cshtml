@@ -1,9 +1,8 @@
-﻿@{ ViewData["Title"] = "Emlak Listesi";
+﻿@{ ViewData["Title"] = "Emlak Satın Al";
     Layout = "_AdminLayout.cshtml"; }
 
 @model IEnumerable<Reseller.Models.Estate>
 @using Reseller.Controllers
-
 
 <h3 class="text-center mt-5">Emlak Bilgileri</h3>
 <br />
@@ -35,17 +34,13 @@
     <td>@estate.EstatePrice</td>
 
     <td>
-        <a class="btn btn-info btn-sm" asp-controller="Estate" asp-action="UpdateEstate" asp-route-id="@estate.EstateId">
-            Update
-        </a>
-    </td>
-    <td>
-        <a class="btn btn-info btn-sm" asp-controller="Estate" asp-action="DeleteEstate" asp-route-id="@estate.EstateId">
-            Delete
+        <a class="btn btn-info btn-sm" asp-controller="Estate" asp-action="BuyEstate" asp-route-id="@estate.EstateId">
+            Buy
         </a>
     </td>
 
-</tr>}
+</tr>
+}
 
     </tbody>
 

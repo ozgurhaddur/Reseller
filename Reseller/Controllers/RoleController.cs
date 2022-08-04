@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Reseller.Models;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Reseller.Controllers
 {
-    
+    [Authorize(Roles = "Admin")]
     public class RoleController : Controller
     {
         private ResellerContext resellerContext;

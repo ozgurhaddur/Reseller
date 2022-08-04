@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Reseller.Controllers
 {
-    [Authorize(Roles = "Seller")]
+    
     public class VehicleController : Controller
     {
         private ResellerContext resellerContext;
@@ -17,12 +17,13 @@ namespace Reseller.Controllers
         {
             resellerContext = _resellerContext;
         }
+        [Authorize(Roles = "Seller,Admin")]
         public IActionResult AddVehicle()
         {
 
             return View();
         }
-
+        [Authorize(Roles = "Seller,Admin")]
         [HttpPost]
         public IActionResult AddVehicle(Vehicle vehicle)
         {
@@ -41,14 +42,14 @@ namespace Reseller.Controllers
 
 
         }
-
+        [Authorize(Roles = "Seller,Admin")]
         public IActionResult UpdateVehicle(int id)
         {
             Vehicle vehicle = resellerContext.Vehicles.Find(id);
 
             return View(vehicle);
         }
-
+        [Authorize(Roles = "Seller,Admin")]
         [HttpPost]
         public IActionResult UpdateVehicle(Vehicle vehicle)
         {
@@ -65,12 +66,12 @@ namespace Reseller.Controllers
                 return View(vehicle);
             }
         }
-
+        [Authorize(Roles = "Seller,Admin")]
         public IActionResult VehicleList()
         {
             return View(resellerContext.Vehicles.ToList());
         }
-
+        [Authorize(Roles = "Seller,Admin")]
         public IActionResult DeleteVehicle(int id)
         {
 
@@ -83,6 +84,58 @@ namespace Reseller.Controllers
             }
             return RedirectToAction("VehicleList");
         }
+        [Authorize(Roles = "Buyer,Admin")]
+        public IActionResult VehicleBucket()
+        {
+            return View(resellerContext.Vehicles.ToList());
+        }
+        List<Vehicle> vehicles = new List<Vehicle>();
+        [Authorize(Roles = "Buyer,Admin")]
+        public IActionResult BucketList(Vehicle vehicle)
+        {
+            
+            var entity = resellerContext.Vehicles.Find(vehicle.VehicleId);
+            vehicles.Add(entity);
+            return View(vehicles.ToList());
+        }
+        
+
+        [Authorize(Roles = "Buyer,Admin")]
+        public IActionResult BuyVehicle(int id)
+        {
+            //Vehicle entity = _vehicles.FirstOrDefault((x => x.VehicleId == vehicle.VehicleId));
+            //if (entity == null)
+            //{
+            //    _vehicles.Add(vehicle);
+            //}
+
+            Vehicle vehicle = resellerContext.Vehicles.Find(id);
+
+            resellerContext.Vehicles.Add(vehicle);
+            return RedirectToAction("BucketList", vehicle);
+        }
+        [Authorize(Roles = "Buyer,Admin")]
+        public IActionResult RemoveVehicle(int id)
+        {
+            Vehicle vehicle = resellerContext.Vehicles.Find(id);
+
+            if (vehicle != null)
+            {
+                resellerContext.Vehicles.Remove(vehicle);
+            }
+
+            return RedirectToAction("VehicleBucket");
+        }
+        //public void ClearVehicle()
+        //{
+        //    _vehicles.Clear();
+        //}
+
+        //public List<Vehicle> GetAllVehicles
+        //{
+        //    get { return _vehicles; }
+
+        //}
     }
 }
 
