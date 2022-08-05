@@ -28,13 +28,17 @@ namespace Reseller
             services.AddControllersWithViews();
             
             services.AddDbContext<ResellerContext>();
+
+            services.AddEntityFrameworkSqlServer();
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
             services.AddMvc(option => option.EnableEndpointRouting = false);
 
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-        .AddCookie(options =>
-        {
-            options.LoginPath = "/Account/Login/";
-        });
+        //    services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+        //.AddCookie(options =>
+        //{
+        //    options.LoginPath = "/User/Login/";
+        //});
 
         }
 
@@ -57,6 +61,8 @@ namespace Reseller
 
             
 
+
+
             app.UseAuthorization();
             app.UseAuthentication();
 
@@ -64,7 +70,7 @@ namespace Reseller
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Account}/{action=Login}/{id?}");
+                    template: "{controller=User}/{action=Login}/{id?}");
             });
 
             //app.UseEndpoints(endpoints =>

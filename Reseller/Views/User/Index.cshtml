@@ -1,0 +1,10 @@
+﻿<h1>Welcome @ViewData["username"]!</h1>
+
+<h2>@ViewData["adminMessage"]</h2>
+
+<h2>@ViewData["managerMessage"]</h2>
+
+<form asp-controller="User" asp-action="Logout"
+      method="post">
+    <input type="submit" value="Logout" />
+</form>

@@ -5,8 +5,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Account\**" />
+    <Content Remove="Views\Account\**" />
+    <EmbeddedResource Remove="Views\Account\**" />
+    <None Remove="Views\Account\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="Views\Admin\Index.cshtml" />
+    <None Include="Views\Admin\_AdminLayout.cshtml" />
+    <None Include="Views\Admin\_Layout.cshtml" />
     <None Include="Views\Estate\AddEstate.cshtml" />
+    <None Include="Views\Estate\EstateBucket.cshtml" />
+    <None Include="Views\Estate\EstateBucketList.cshtml" />
     <None Include="Views\Estate\EstateList.cshtml" />
     <None Include="Views\Estate\UpdateEstate.cshtml" />
     <None Include="Views\Estate\_AdminLayout.cshtml" />
@@ -24,7 +35,9 @@
     <None Include="Views\Shared\_Layout.cshtml" />
     <None Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
     <None Include="Views\Vehicle\AddVehicle.cshtml" />
+    <None Include="Views\Vehicle\BucketList.cshtml" />
     <None Include="Views\Vehicle\UpdateVehicle.cshtml" />
+    <None Include="Views\Vehicle\VehicleBucket.cshtml" />
     <None Include="Views\Vehicle\VehicleList.cshtml" />
     <None Include="Views\Vehicle\_AdminLayout.cshtml" />
     <None Include="Views\_ViewImports.cshtml" />
@@ -1472,6 +1485,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

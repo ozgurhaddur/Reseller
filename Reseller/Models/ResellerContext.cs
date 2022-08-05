@@ -20,10 +20,14 @@ namespace Reseller.Models
         public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Bill> Bills { get; set; }
         public virtual DbSet<Buyer> Buyers { get; set; }
+        public virtual DbSet<City> Cities { get; set; }
         public virtual DbSet<Estate> Estates { get; set; }
+        public virtual DbSet<LoginModel> LoginModels { get; set; }
+        public virtual DbSet<RegisterModel> RegisterModels { get; set; }
         public virtual DbSet<ResellerOrder> ResellerOrders { get; set; }
         public virtual DbSet<RoleUser> RoleUsers { get; set; }
         public virtual DbSet<Seller> Sellers { get; set; }
+        public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Vehicle> Vehicles { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -46,6 +50,11 @@ namespace Reseller.Models
                 entity.Property(e => e.AdminId).HasColumnName("AdminID");
 
                 entity.Property(e => e.AdminName)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.Password)
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsFixedLength(true);
@@ -96,6 +105,11 @@ namespace Reseller.Models
                     .HasMaxLength(50)
                     .IsFixedLength(true);
 
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsFixedLength(true);
+
                 entity.Property(e => e.PhoneBuyer)
                     .IsRequired()
                     .HasMaxLength(50)
@@ -108,6 +122,19 @@ namespace Reseller.Models
                     .HasForeignKey(d => d.RoleId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Buyer_RoleUsers");
+            });
+
+            modelBuilder.Entity<City>(entity =>
+            {
+                entity.HasKey(e => e.CityId)
+                    .HasName("PK_CityID")
+                    .IsClustered(false);
+
+                entity.ToTable("City");
+
+                entity.Property(e => e.CityId).HasColumnName("CityID");
+
+                entity.Property(e => e.CityName).HasMaxLength(50);
             });
 
             modelBuilder.Entity<Estate>(entity =>
@@ -155,6 +182,61 @@ namespace Reseller.Models
                     .IsFixedLength(true);
 
                 entity.Property(e => e.StatusInfo)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsFixedLength(true);
+            });
+
+            modelBuilder.Entity<LoginModel>(entity =>
+            {
+                entity.HasKey(e => e.LoginId)
+                    .IsClustered(false);
+
+                entity.ToTable("LoginModel");
+
+                entity.Property(e => e.LoginId).HasColumnName("LoginID");
+
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.ReturnUrl)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.Role)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.Username)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsFixedLength(true);
+            });
+
+            modelBuilder.Entity<RegisterModel>(entity =>
+            {
+                entity.HasKey(e => e.UserId)
+                    .IsClustered(false);
+
+                entity.ToTable("RegisterModel");
+
+                entity.Property(e => e.UserId).HasColumnName("UserID");
+
+                entity.Property(e => e.ConfirmPassword)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.Username)
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsFixedLength(true);
@@ -234,6 +316,11 @@ namespace Reseller.Models
 
                 entity.Property(e => e.SellerId).HasColumnName("SellerID");
 
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsFixedLength(true);
+
                 entity.Property(e => e.PhoneSeller)
                     .IsRequired()
                     .HasMaxLength(50)
@@ -256,6 +343,31 @@ namespace Reseller.Models
                     .HasForeignKey(d => d.RoleId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Seller_RoleUsers");
+            });
+
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.HasKey(e => e.UserId)
+                    .IsClustered(false);
+
+                entity.ToTable("User");
+
+                entity.Property(e => e.UserId).HasColumnName("UserID");
+
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.Roles)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.Username)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsFixedLength(true);
             });
 
             modelBuilder.Entity<Vehicle>(entity =>

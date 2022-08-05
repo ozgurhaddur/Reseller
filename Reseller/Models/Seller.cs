@@ -14,6 +14,7 @@ namespace Reseller.Models
 
         public int SellerId { get; set; }
         public string SellerUserName { get; set; }
+        public string Password { get; set; }
         public string SellerName { get; set; }
         public string PhoneSeller { get; set; }
         public int RoleId { get; set; }
