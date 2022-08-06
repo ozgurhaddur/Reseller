@@ -2,7 +2,7 @@
 Vehicle/Estate Marketing Web Application
 
 ## Giriş
-Çalışmada belirlenen amaç,bir uygulama gerçekleştirimi ile beraber Emlak/Araç satışının ya da kiralanmasının sağlandığı bir uygulama gerçekleştirilmesidir.
+Çalışmada belirlenen amaç, Emlak/Araç satışının ya da kiralanmasının sağlandığı bir uygulama gerçekleştirilmesidir.
 
 ## Yöntem
 ASP.NET Core tabanlı yapı kullanılarak bir web uygulaması hazırlanmıştır.
