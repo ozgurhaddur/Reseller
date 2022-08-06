@@ -33,6 +33,52 @@ namespace Reseller.Controllers
                 User user = new User();
                 user.Username = model.Username;
                 user.Password = model.Password;
+                user.Roles = "Admin,";
+
+                db.Users.Add(user);
+                db.SaveChanges();
+
+                ViewData["message"] = "User created successfully!";
+            }
+            return View();
+        }
+
+        public IActionResult RegisterSeller()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult RegisterSeller(RegisterModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                User user = new User();
+                user.Username = model.Username;
+                user.Password = model.Password;
+                user.Roles = "Seller,";
+
+                db.Users.Add(user);
+                db.SaveChanges();
+
+                ViewData["message"] = "User created successfully!";
+            }
+            return View();
+        }
+
+        public IActionResult RegisterBuyer()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult RegisterBuyer(RegisterModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                User user = new User();
+                user.Username = model.Username;
+                user.Password = model.Password;
                 user.Roles = "Buyer,";
 
                 db.Users.Add(user);

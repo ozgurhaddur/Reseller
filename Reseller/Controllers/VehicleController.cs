@@ -89,15 +89,7 @@ namespace Reseller.Controllers
         {
             return View(resellerContext.Vehicles.ToList());
         }
-        List<Vehicle> vehicles = new List<Vehicle>();
-        [Authorize(Roles = "Buyer,Admin")]
-        public IActionResult BucketList(Vehicle vehicle)
-        {
-            
-            var entity = resellerContext.Vehicles.Find(vehicle.VehicleId);
-            vehicles.Add(entity);
-            return View(vehicles.ToList());
-        }
+        
         
 
         [Authorize(Roles = "Buyer,Admin")]
@@ -113,6 +105,15 @@ namespace Reseller.Controllers
 
             resellerContext.Vehicles.Add(vehicle);
             return RedirectToAction("BucketList", vehicle);
+        }
+
+        [Authorize(Roles = "Buyer,Admin")]
+        public IActionResult BucketList(Vehicle vehicle)
+        {
+            List<Vehicle> vehicles = new List<Vehicle>();
+            var entity = resellerContext.Vehicles.Find(vehicle.VehicleId);
+            vehicles.Add(entity);
+            return View(vehicles.ToList());
         }
         [Authorize(Roles = "Buyer,Admin")]
         public IActionResult RemoveVehicle(int id)

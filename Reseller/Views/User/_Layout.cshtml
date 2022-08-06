@@ -24,9 +24,75 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-controller="User" asp-action="Login">Giriş Yap </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="User" asp-action="Register">Kayıt Ol</a>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin</a>
+                            <div class="dropdown-menu">
+                                <a class="nav-link text-dark" asp-controller="User" asp-action="Register">Kayıt Ol</a>
+                                <a class="nav-link text-dark" asp-controller="User" asp-action="Login">Giriş Yap </a>
+                            </div>
                         </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Satıcı</a>
+                            <div class="dropdown-menu">
+                                <a class="nav-link text-dark" asp-controller="User" asp-action="RegisterSeller">Kayıt Ol</a>
+                                <a class="nav-link text-dark" asp-controller="User" asp-action="Login">Giriş Yap </a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Alıcı</a>
+                            <div class="dropdown-menu">
+                                <a class="nav-link text-dark" asp-controller="User" asp-action="RegisterBuyer">Kayıt Ol</a>
+                                <a class="nav-link text-dark" asp-controller="User" asp-action="Login">Giriş Yap </a>
+                            </div>
+                        </li>
+                        @*<li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#b" aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-title">Admin</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="b">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link text-dark" asp-controller="User" asp-action="Register">Kayıt Ol</a></li>
+                    <li class="nav-item"> <a class="nav-link text-dark" asp-controller="User" asp-action="Login">Giriş Yap </a></li>
+                </ul>
+            </div>
+        </li>*@
+                        @*<li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" href="#c" aria-expanded="false" aria-controls="ui-basic">
+                                <span class="menu-title">Satıcı</span>
+                                <i class="menu-arrow"></i>
+                            </a>
+                            <div class="collapse" id="c">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item"> <a class="nav-link text-dark" asp-controller="User" asp-action="RegisterSeller">Kayıt Ol</a></li>
+                                    <li class="nav-item"> <a class="nav-link text-dark" asp-controller="User" asp-action="Login">Giriş Yap </a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" href="#d" aria-expanded="false" aria-controls="ui-basic">
+                                <span class="menu-title">Alıcı</span>
+                                <i class="menu-arrow"></i>
+                            </a>
+                            <div class="collapse" id="d">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item"> <a class="nav-link text-dark" asp-controller="User" asp-action="RegisterBuyer">Kayıt Ol</a></li>
+                                    <li class="nav-item"> <a class="nav-link text-dark" asp-controller="User" asp-action="Login">Giriş Yap </a></li>
+                                </ul>
+                            </div>
+                        </li>*@
+                        @*<li class="nav-item">
+            <a class="nav-link text-dark" asp-controller="User" asp-action="Register">Kayıt Ol</a>
+        </li>*@
+                        @*<li class="nav-item">
+            <a class="nav-link text-dark" asp-controller="User" asp-action="RegisterSeller">Satıcı Kayıt İşlemi</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-controller="User" asp-action="RegisterBuyer">Alıcı Kayıt İşlemi</a>
+        </li>*@
                     </ul>
                 </div>
             </div>

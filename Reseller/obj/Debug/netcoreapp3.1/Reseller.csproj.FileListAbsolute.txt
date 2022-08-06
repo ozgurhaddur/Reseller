@@ -110,3 +110,5 @@ C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Razor\View
 C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Razor\Views\User\Register.cshtml.g.cs
 C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Razor\Views\User\_Layout.cshtml.g.cs
 C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Reseller.csproj.AssemblyReference.cache
+C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Razor\Views\User\RegisterBuyer.cshtml.g.cs
+C:\Users\ozgur\source\repos\Reseller\Reseller\obj\Debug\netcoreapp3.1\Razor\Views\User\RegisterSeller.cshtml.g.cs
