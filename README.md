@@ -19,6 +19,8 @@ Sonrasında kullanıcıların erişebileceği basit bir arayüz oluşturuldu.
 
 Kullanıcı bilgilerine göre Controller dosyaları ve Views klasörü altında .cshtml uzantılı arayüz dosyaları üretildi.
 
+Uygulamada giriş/kayıt işlemleri Identity yapısı ile gerçekleştirildi.
+
 ## Uygulama Arayüzü
 
 #### Giriş/Kayıt Ol Sayfası
