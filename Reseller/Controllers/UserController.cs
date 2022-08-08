@@ -28,17 +28,24 @@ namespace Reseller.Controllers
         [HttpPost]
         public IActionResult Register(RegisterModel model)
         {
-            if (ModelState.IsValid)
+            if (db.Users.FirstOrDefault(x => x.Username == model.Username) == null)
             {
-                User user = new User();
-                user.Username = model.Username;
-                user.Password = model.Password;
-                user.Roles = "Admin,";
+                if (ModelState.IsValid)
+                {
+                    User user = new User();
+                    user.Username = model.Username;
+                    user.Password = model.Password;
+                    user.Roles = "Admin,";
 
-                db.Users.Add(user);
-                db.SaveChanges();
+                    db.Users.Add(user);
+                    db.SaveChanges();
 
-                ViewData["message"] = "User created successfully!";
+                    ViewData["message"] = "User created successfully!";
+                }
+            }
+            else
+            {
+                ViewData["message"] = "User recorded before!";
             }
             return View();
         }
@@ -51,17 +58,27 @@ namespace Reseller.Controllers
         [HttpPost]
         public IActionResult RegisterSeller(RegisterModel model)
         {
-            if (ModelState.IsValid)
+            if (db.Users.FirstOrDefault(x => x.Username == model.Username) == null)
             {
-                User user = new User();
-                user.Username = model.Username;
-                user.Password = model.Password;
-                user.Roles = "Seller,";
 
-                db.Users.Add(user);
-                db.SaveChanges();
 
-                ViewData["message"] = "User created successfully!";
+
+                if (ModelState.IsValid)
+                {
+                    User user = new User();
+                    user.Username = model.Username;
+                    user.Password = model.Password;
+                    user.Roles = "Seller,";
+
+                    db.Users.Add(user);
+                    db.SaveChanges();
+
+                    ViewData["message"] = "User created successfully!";
+                }
+            }
+            else
+            {
+                ViewData["message"] = "User recorded before!";
             }
             return View();
         }
@@ -74,17 +91,24 @@ namespace Reseller.Controllers
         [HttpPost]
         public IActionResult RegisterBuyer(RegisterModel model)
         {
-            if (ModelState.IsValid)
+            if (db.Users.FirstOrDefault(x => x.Username == model.Username) == null)
             {
-                User user = new User();
-                user.Username = model.Username;
-                user.Password = model.Password;
-                user.Roles = "Buyer,";
+                if (ModelState.IsValid)
+                {
+                    User user = new User();
+                    user.Username = model.Username;
+                    user.Password = model.Password;
+                    user.Roles = "Buyer,";
 
-                db.Users.Add(user);
-                db.SaveChanges();
+                    db.Users.Add(user);
+                    db.SaveChanges();
 
-                ViewData["message"] = "User created successfully!";
+                    ViewData["message"] = "User created successfully!";
+                }
+            }
+            else
+            {
+                ViewData["message"] = "User recorded before!";
             }
             return View();
         }

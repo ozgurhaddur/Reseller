@@ -346,7 +346,7 @@
                                 @if (User.IsInRole("Seller") || (User.IsInRole("Admin")))
                                 {
                                     <li class="nav-item"> <a class="nav-link" asp-controller="Vehicle" asp-action="AddVehicle">Araç Ekle</a></li>
-                                    <li class="nav-item"> <a class="nav-link" asp-controller="Vehicle" asp-action="VehicleList">Araç Güncelle</a></li>
+                                    <li class="nav-item"> <a class="nav-link" asp-controller="Vehicle" asp-action="VehicleList">Araç Listesi</a></li>
                                 }
                                 @if (User.IsInRole("Buyer") || (User.IsInRole("Admin")))
                                 {
@@ -365,7 +365,7 @@
                                 @if (User.IsInRole("Seller") || (User.IsInRole("Admin")))
                                 {
                                     <li class="nav-item"> <a class="nav-link" asp-controller="Estate" asp-action="AddEstate">Emlak Ekle</a></li>
-                                    <li class="nav-item"> <a class="nav-link" asp-controller="Estate" asp-action="EstateList">Emlak Güncelle</a></li>
+                                    <li class="nav-item"> <a class="nav-link" asp-controller="Estate" asp-action="EstateList">Emlak Listesi</a></li>
                                 }
                                 @if (User.IsInRole("Buyer") || (User.IsInRole("Admin")))
                                 {
